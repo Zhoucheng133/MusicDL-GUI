@@ -411,6 +411,13 @@
   dependencies:
     "@tauri-apps/api" "^2.10.1"
 
+"@tauri-apps/plugin-upload@~2":
+  version "2.4.0"
+  resolved "https://registry.npmmirror.com/@tauri-apps/plugin-upload/-/plugin-upload-2.4.0.tgz#a08f7174471936429f5601c1477f40462915b2e8"
+  integrity sha512-ebhsqXmiELnpKu2p46EZG14UKxvbVP28BpJBiHzR+quWVrMxm40518PXTDlXXcJUW5CkbmP/6RL5ERSVXBL8sQ==
+  dependencies:
+    "@tauri-apps/api" "^2.8.0"
+
 "@types/estree@1.0.8":
   version "1.0.8"
   resolved "https://registry.npmmirror.com/@types/estree/-/estree-1.0.8.tgz#958b91c991b1867ced318bedea0e215ee050726e"
