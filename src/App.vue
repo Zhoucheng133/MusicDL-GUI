@@ -1,5 +1,5 @@
 <template>
-  <TitleBar />
+  <TitleBar v-if="!isWindows" />
 </template>
 
 <script setup lang="ts">
@@ -8,6 +8,11 @@ import { getCurrentWindow } from '@tauri-apps/api/window';
 import TitleBar from './components/TitleBar.vue';
 import { useTheme } from 'vuetify';
 const theme = useTheme()
+
+import { platform } from '@tauri-apps/plugin-os';
+const currentPlatform = platform();
+
+let isWindows = currentPlatform=='windows';
 
 onMounted(async ()=>{
   const appWindow = getCurrentWindow()
