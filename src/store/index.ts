@@ -77,6 +77,12 @@ export default defineStore("index", ()=>{
   }
 
   const download=async (item: ListItem)=>{
+
+    if(!await pathCheck(downloadPath.value)){
+      await message('下载目录不存在或没有权限', { title: '无法下载', kind: 'error' });
+      return;
+    }
+
     downloadProgress.value=0;
     downloading.value=true;
     showProgressDialog.value=true;
