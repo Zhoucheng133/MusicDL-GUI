@@ -53,7 +53,7 @@ export default defineStore("index", ()=>{
       }
     });
     const output = await command.execute();
-    const match = output.stdout.match(/===JSON_START===\n([\s\S]*)\n===JSON_END===/);
+    const match = output.stdout.match(/===JSON_START===\r?\n([\s\S]*?)\r?\n===JSON_END===/);
     if(match){
       const jsonData = JSON.parse(match[1]);
       console.log(jsonData);
