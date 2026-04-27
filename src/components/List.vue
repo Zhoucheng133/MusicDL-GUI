@@ -1,5 +1,5 @@
 <template>
-  <div class="list_container" v-if="list.length!=0">
+  <div class="list_container" v-if="list.length!=0 && !loading">
     <div class="list_header">
       <div class="list_header_content">
         <div class="list_header_center">序号</div>
@@ -20,7 +20,7 @@
       </div>
     </div>
   </div>
-  <div class="list_empty" v-else-if="!loading">
+  <div class="list_empty" v-else-if="list.length==0 && !loading">
     <div class="list_empty_content">
       <v-icon icon="mdi-music-circle-outline"></v-icon>
       <div style="margin-top: 5px; font-size: 14px;">搜索关键词来查找</div>
