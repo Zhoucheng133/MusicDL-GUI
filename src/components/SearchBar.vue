@@ -16,15 +16,23 @@
       @click:append-inner="store.search"
       @keydown.enter="store.search"
     ></v-text-field>
-    <v-btn icon="mdi-cog" variant="text" size="small"></v-btn>
+    <v-btn icon="mdi-cog" variant="text" size="small" @click="showSettings"></v-btn>
   </div>
+  <Settings ref="settingsRef" />
 </template>
 
 <script lang="ts" setup>
 import { storeToRefs } from 'pinia';
 import Store from '../store';
+import Settings from './Settings.vue';
+import { ref } from 'vue';
 const store = Store();
 let {client, keyword}=storeToRefs(store);
+
+const settingsRef=ref();
+const showSettings=()=>{
+  settingsRef.value.show();
+}
 
 const clients=[
   {name: '网易云', value: 'NeteaseMusicClient'},

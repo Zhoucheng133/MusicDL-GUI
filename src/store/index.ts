@@ -33,6 +33,7 @@ export default defineStore("index", ()=>{
   const saveConfig=ref(false);
   const showProgressDialog=ref(false);
   const noConfirm=ref(false);
+  const workdir=ref('');
 
   const search=async ()=>{
     if(keyword.value.length === 0){
@@ -40,11 +41,10 @@ export default defineStore("index", ()=>{
       return;
     }
     loading.value=true;
-    const home = await homeDir();
     const args=[
       "-keyword", keyword.value,
       "-client", client.value,
-      "-workdir", home,
+      "-workdir", workdir.value,
     ]
 
     const command = Command.sidecar('binaries/core', args, {
@@ -167,6 +167,7 @@ export default defineStore("index", ()=>{
     downloadPath.value = localStorage.getItem("file") ?? await downloadDir();
     encode.value = localStorage.getItem("encode") ?? "mp3 (320k)";
     noConfirm.value = localStorage.getItem("noConfirm") === "true";
+    workdir.value = localStorage.getItem("workdir") ?? await homeDir();
   }
 
   return {
@@ -186,5 +187,6 @@ export default defineStore("index", ()=>{
     showProgressDialog,
     cancelDownload,
     noConfirm,
+    workdir
   };
 });
