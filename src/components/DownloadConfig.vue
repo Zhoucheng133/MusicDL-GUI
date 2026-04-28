@@ -55,7 +55,7 @@ import { ref } from 'vue';
 
 const store = Store();
 
-let { downloadPath, encode, saveConfig, noConfirm } = storeToRefs(store);
+let { downloadPath, encode, saveConfig } = storeToRefs(store);
 
 const downloadDialog=ref(false);
 
@@ -67,11 +67,11 @@ async function saveConfigHandler(){
       await message('下载路径不存在', { title: '无法记住当前配置', kind: 'error' });
       return;
     }
-    localStorage.setItem("noConfirm", "true");
-    noConfirm.value = true;
+    localStorage.setItem("saveConfig", "true");
+    saveConfig.value = true;
   }else{
-    localStorage.setItem("noConfirm", "false");
-    noConfirm.value = false;
+    localStorage.setItem("saveConfig", "false");
+    saveConfig.value = false;
   }
 }
 

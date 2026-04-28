@@ -58,7 +58,7 @@ import { storeToRefs } from 'pinia';
 import { message, open } from '@tauri-apps/plugin-dialog';
 const store=Store();
 
-let { downloadPath, encode, workdir, saveConfig, noConfirm }=storeToRefs(store);
+let { downloadPath, encode, workdir, saveConfig }=storeToRefs(store);
 
 async function saveConfigHandler(){
   if(saveConfig.value){
@@ -68,11 +68,11 @@ async function saveConfigHandler(){
       await message('下载路径不存在', { title: '无法记住当前配置', kind: 'error' });
       return;
     }
-    localStorage.setItem("noConfirm", "true");
-    noConfirm.value = true;
+    localStorage.setItem("saveConfig", "true");
+    saveConfig.value = true;
   }else{
-    localStorage.setItem("noConfirm", "false");
-    noConfirm.value = false;
+    localStorage.setItem("saveConfig", "false");
+    saveConfig.value = false;
   }
 }
 

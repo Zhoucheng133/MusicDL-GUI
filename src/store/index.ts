@@ -32,7 +32,6 @@ export default defineStore("index", ()=>{
   const encode=ref("mp3 (320k)");
   const saveConfig=ref(false);
   const showProgressDialog=ref(false);
-  const noConfirm=ref(false);
   const workdir=ref('');
 
   const search=async ()=>{
@@ -166,7 +165,7 @@ export default defineStore("index", ()=>{
   const init=async ()=>{
     downloadPath.value = localStorage.getItem("file") ?? await downloadDir();
     encode.value = localStorage.getItem("encode") ?? "mp3 (320k)";
-    noConfirm.value = localStorage.getItem("noConfirm") === "true";
+    saveConfig.value = localStorage.getItem("saveConfig") === "true";
     workdir.value = localStorage.getItem("workdir") ?? await homeDir();
   }
 
@@ -186,7 +185,6 @@ export default defineStore("index", ()=>{
     init,
     showProgressDialog,
     cancelDownload,
-    noConfirm,
     workdir
   };
 });

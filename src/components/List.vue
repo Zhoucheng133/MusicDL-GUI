@@ -46,12 +46,12 @@ import DownloadConfig from "./DownloadConfig.vue";
 
 const store = Store();
 const downloadConfigRef=ref();
-let { list, loading, noConfirm } = storeToRefs(store);
+let { list, loading, saveConfig } = storeToRefs(store);
 
 let selectItem = ref<ListItem | null>(null);
 
 function downloadHandler(item: ListItem) {
-  if(noConfirm.value){
+  if(saveConfig.value){
     store.download(item);
   }else{
     selectItem.value = item;
