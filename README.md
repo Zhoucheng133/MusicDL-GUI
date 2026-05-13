@@ -9,8 +9,8 @@
 这是一个基于[musicdl](https://github.com/CharlesPikachu/musicdl)的GUI程序  
 核心组件[在这里](https://github.com/Zhoucheng133/MusicDL-Core)
 
-这个仓库是基于Tauri的版本，另有基于PyQt6的版本  
-★ Tauri ver. | [PyQt ver.](https://github.com/Zhoucheng133/MusicDL-PyQt)
+这个仓库是基于Tauri的桌面端版本，另有基于PyQt的桌面端版本和使用Docker部署的Web版本  
+★ Tauri ver. | [PyQt ver.](https://github.com/Zhoucheng133/MusicDL-PyQt) | [Web ver.](https://github.com/Zhoucheng133/MusicDL-Web)
 
 ## 功能
 
